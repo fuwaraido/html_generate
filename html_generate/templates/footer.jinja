@@ -1,0 +1,11 @@
+{## generic footer for website ##}
+<footer class="site-footer">
+    {% block site_footer_area -%}{%- endblock %}
+    {% block site_copyright -%}
+    <p class="site-info">
+        <span class="copy">&copy;</span>
+        {{ page.year_from }} - {{ page.year_to }}<a href="{{ page.site_url }}">{{ page.site_name }}</a>
+        ,&nbsp;All rights reserved.
+    </p>
+    {%- endblock %}
+</footer>

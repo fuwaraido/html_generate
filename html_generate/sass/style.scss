@@ -1,0 +1,197 @@
+
+$legacy_browser_support: false !default;
+
+// 
+// Base: color & fonts
+//
+$bg-color: #fff;
+$fg-color: #333;
+$font-family: Roboto, Meiryo, sans-serif;
+$font-size: 16px;
+
+//
+// Links: colors
+//
+$link-color: royalblue;
+$link-visited-color: steelblue;
+$link-decoration: none;
+
+@import "sass/variables";
+
+// 
+// Typography: Headings 
+//
+$h1-font-size: 2em;
+$h1-top-margin: 0.67em;
+$h1-right-margin: 0;
+$h1-bottom-margin: 0.67em;
+$h1-left-margin: 0;
+
+$h2-font-size: 1.5em;
+$h2-top-margin: 0.83em;
+$h2-right-margin: 0;
+$h2-bottom-margin: 0.83em;
+$h2-left-margin: 0;
+
+$h3-font-size: 1.17em;
+$h3-top-margin: 1em;
+$h3-right-margin: 0;
+$h3-bottom-margin:1em;
+$h3-left-margin: 0;
+
+$h4-font-size: 1em;
+$h4-top-margin: 1.33em;
+$h4-right-margin: 0;
+$h4-bottom-margin:1.33em;
+$h4-left-margin: 0;
+
+$h5-font-size: 0.83em;
+$h5-top-margin: 1.67em;
+$h5-right-margin: 0;
+$h5-bottom-margin:1.67em;
+$h5-left-margin: 0;
+
+$h6-font-size: 0.67em;
+$h6-top-margin: 2.33em;
+$h6-right-margin: 0;
+$h6-bottom-margin:2.33em;
+$h6-left-margin: 0;
+
+$hx-line-height: 1.5em;
+
+//
+// Typography: paragraph margins
+//
+$p-font-size: 1rem;
+$p-top-margin: 1em;
+$p-right-margin: 0;
+$p-bottom-margin: 1em;
+$p-left-margin: 0;
+$p-line-height: 1.5em;
+
+//
+// Normalize & basic stylings
+//
+@import "sass/normalize";
+@import "sass/base";
+@import "sass/typography";
+
+//
+// layout base
+//
+$max-container-width: 1280px;
+
+//
+// nav menu styles
+//
+$nav-menu-style: "style-1";
+$nav-item-padding-top: 0;
+$nav-item-padding-right: 2em;
+$nav-item-padding-bottom: 0;
+$nav-item-padding-left: 0;
+$nav-item-color: $fg-color;
+$nav-item-decoration: none;
+$nav-item-hover-color: opacify($nav-item-color, 0.5);
+
+//
+// site alayout
+//
+$columns: 2;
+$primary-v-margin: 1rem;
+$primary-bottom-margin:0;
+$secondary-v-margin: 1rem;
+$container-padding: 1rem;
+
+//
+// box-layout
+//
+$widget-h-padding: 2rem;
+$widget-v-padding: 1rem;
+
+// main post
+$post-h-padding: 2rem;
+$post-v-padding: 1rem;
+
+// post list
+$post-list-margin-bottom: 1rem;
+
+// post grid
+$post-grid-margin-bottom: 1rem;
+
+//
+// box-borders
+//
+$primary-border-all: false;
+$secondary-border-all: false;
+$container-border-all: false;
+$post-list-border-all: false;
+$widget-border-all: false;
+
+//$post-list-border-radius: 0rem;
+//$post-border-radius: 0rem;
+//$widget-border-radius: 0rem;
+
+//
+// box-colors
+//
+$widget-bg-color: #ffffff;
+$post-bg-color: #ffffff;
+
+//
+// some framework extensions
+//
+@import "sass/box";
+@import "sass/layout";
+@import "sass/grid";
+@import "sass/nav_menu";
+
+$site-header-color: #ffffff;
+$site-footer-color: #ffffff;
+
+//
+//  site design
+//
+@import "sass/design";
+
+.container {
+    @include center-layout();
+    @include clearfix();
+}
+
+.site-content {
+    @include container-box();
+}
+
+#primary {
+    @include clearfix();
+    @include primary-box();
+    @include primary-layout($columns);
+}
+
+#secondary {
+    @include secondary-box();
+    @include secondary-layout($columns);
+}
+
+.post {
+    @include post-box();
+}
+
+.post-list {
+    @include post-list-box();
+}
+
+.post-grid {
+    float:left;    
+    @include post-grid-box();
+    @extend %twin;
+}
+
+.widget {
+    @include widget-box();
+}
+
+.site-info {
+    text-align: center;
+}
+

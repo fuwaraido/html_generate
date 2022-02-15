@@ -1,0 +1,18 @@
+{## style sheet links ##}
+{% if 'head' in page.styles: -%}
+    {% for css in page.styles['head'] -%}
+        <link rel="stylesheet" type="{{ css.type }}" href="{{ css.url }}">
+    {%- endfor %}        
+{%- endif %}
+
+{## javascript links ##}
+{% if 'head' in  page.scripts -%}
+    {% for js in page.scripts['head'] -%}
+        <script {{ js.async_or_defer }} src="{{ js.url }}" type="{{ js.type }}"></script>
+    {%- endfor %}
+{%- endif %}
+
+{## bulk google font loading...need preload optimzation ##}
+{% for font in page.fonts -%}
+{{ font | safe }}
+{%- endfor %}

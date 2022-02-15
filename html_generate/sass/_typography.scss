@@ -1,0 +1,163 @@
+
+
+
+/* global settings for headings */
+h1, h2, h3, h4, h5, h6 {    
+    line-height: $hx-line-height;
+
+    @if variable-exists(hx-letter-spacing) {
+        letter-spacing: $hx-letter-spacing;
+    }
+
+    @if variable-exists(hx-color) {
+        color: $hx-color;
+    }
+}
+
+/* headings styles */
+
+h1 {
+
+    @if variable-exists(h1-font-family) {
+        font-family: $h1-font-family;
+    }
+
+    @if variable-exists(h1-font-style) {
+        font-style: $h1-font-style;
+    }
+
+    @if variable-exists(h1-font-weight) {
+        font-weight: $h1-font-weight;
+    }
+
+    @if variable-exists(h1-font-size) {
+        font-size: $h1-font-size;
+    }
+
+}
+
+
+h2 {
+
+    @if variable-exists(h2-font-family) {
+        font-family: $h2-font-family;
+    }
+
+    @if variable-exists(h2-font-style) {
+        font-style: $h2-font-style;
+    }
+
+    @if variable-exists(h2-font-weight) {
+        font-weight: $h2-font-weight;
+    }
+
+    @if variable-exists(h2-font-size) {
+        font-size: $h2-font-size;
+    }
+
+}
+
+
+h3 {
+
+    @if variable-exists(h3-font-family) {
+        font-family: $h3-font-family;
+    }
+
+    @if variable-exists(h3-font-style) {
+        font-style: $h3-font-style;
+    }
+
+    @if variable-exists(h3-font-weight) {
+        font-weight: $h3-font-weight;
+    }
+
+    @if variable-exists(h3-font-size) {
+        font-size: $h3-font-size;
+    }
+
+}
+
+
+h4 {
+
+    @if variable-exists(h4-font-family) {
+        font-family: $h4-font-family;
+    }
+
+    @if variable-exists(h4-font-style) {
+        font-style: $h4-font-style;
+    }
+
+    @if variable-exists(h4-font-weight) {
+        font-weight: $h4-font-weight;
+    }
+
+    @if variable-exists(h4-font-size) {
+        font-size: $h4-font-size;
+    }
+
+}
+
+
+h5 {
+
+    @if variable-exists(h5-font-family) {
+        font-family: $h5-font-family;
+    }
+
+    @if variable-exists(h5-font-style) {
+        font-style: $h5-font-style;
+    }
+
+    @if variable-exists(h5-font-weight) {
+        font-weight: $h5-font-weight;
+    }
+
+    @if variable-exists(h5-font-size) {
+        font-size: $h5-font-size;
+    }
+
+}
+
+
+h6 {
+
+    @if variable-exists(h6-font-family) {
+        font-family: $h6-font-family;
+    }
+
+    @if variable-exists(h6-font-style) {
+        font-style: $h6-font-style;
+    }
+
+    @if variable-exists(h6-font-weight) {
+        font-weight: $h6-font-weight;
+    }
+
+    @if variable-exists(h6-font-size) {
+        font-size: $h6-font-size;
+    }
+
+}
+
+
+p {
+
+    @if variable-exists(p-font-family) {
+        font-family: $p-font-family;
+    }
+
+    @if variable-exists(p-font-style) {
+        font-style: $p-font-style;
+    }
+
+    @if variable-exists(p-font-weight) {
+        font-weight: $p-font-weight;
+    }
+
+    @if variable-exists(p-font-size) {
+        font-size: $p-font-size;
+    }
+
+}

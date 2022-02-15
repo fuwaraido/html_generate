@@ -1,0 +1,28 @@
+{## generic header section of websites ##}
+<header id="masthead" class="site-header">
+    {% if page.wrap_navigation %}
+    <div id="site-nav-wrapper" class="container">
+    {% endif %}
+
+    {% block site_branding %}
+    <div class="site-branding">
+        {% block site_title %}
+            {% if page.is_home %}
+                <h1 class="site-title">{{ page.site_name }}</h1>
+            {% else %}
+                <p class="site-title">{{ page.site_name }}</p>
+            {% endif %}
+        {% endblock %}
+    </div>
+    {% endblock %}
+
+    {% if page.main_navigation != [] %}
+        {% block main_navigation %}                    
+            {% include "main_navigation.jinja" %}                    
+        {% endblock %}
+    {% endif %}
+
+    {% if page.wrap_navigation %}
+    </div>
+    {% endif %}
+</header>

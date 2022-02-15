@@ -1,0 +1,140 @@
+
+
+%col:last-child {
+    margin-right: 0;
+    /* FIXME: margin of float element does not offset
+     * so I did this but probably not nice */
+    margin-bottom: 0;
+}
+
+%quater, %third, %half, %two-third, %three-quater, %full {
+    @extend %col;
+    float: none;
+    width: 100%;
+}
+
+@media (min-width: $tablet-breakpoint) {
+
+    %half {
+        width: 50% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+}
+
+@media (min-width: $laptop-breakpoint) {
+
+    %third {
+        width: 1/3*100% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %half {
+        width: 50% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %two-third {
+        width: 2/3*100% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+}
+
+@media (min-width: $desktop-breakpoint) {
+
+    %quater {
+        width: 25% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %third {
+        width: 1/3*100% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %half {
+        width: 50% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %two-third {
+        width: 2/3*100% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %three-quater {
+        width: 75% - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+}
+
+%triple {
+    @extend %third;
+}
+
+%triple:nth-child(3n) {
+    margin-right: 0;    
+}
+
+%twin {
+    @extend %half;
+}
+
+%twin:nth-child(2n) {
+    margin-right: 0;
+}
+
+%quad {
+    @extend %quater;
+}
+
+%quad:nth-child(4n) {
+    margin-right: 0;
+}
+
+.quater {
+    @extend %quater;
+}
+
+.third {
+    @extend %third;
+}
+
+.half {
+    @extend %half;
+}
+
+.two-third {
+    @extend %two-third;
+}
+
+.three-quater {
+    @extend %three-quater;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}

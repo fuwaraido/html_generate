@@ -1,0 +1,241 @@
+#
+# General settings
+#
+
+AddDefaultCharset {{ site.charset }}
+DefaultLanguage {{ site.lang }}
+{% if site.time_zone != None -%}
+SetEnv TZ {{ site.time_zone }}
+{%- endif %}
+{% if site.disable_server_signature -%}
+ServerSignature Off
+{%- endif %}
+{% if site.disable_multiview -%}
+Options -MultiViews
+{%- endif %}
+{% if not site.disable_etags -%}
+<IfModule mod_headers.c>
+	Header unset ETag
+</IfModule>
+{%- endif %}
+{% if not site.disable_rewrite -%}
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+</IfModule>
+{%- endif %}
+{% if site.email != None -%}
+# Admin email address
+ServerSignature EMail
+SetEnv SERVER_ADMIN {{ site.email }}
+{%- endif %}
+{% if site.enable_directory_browsing %}
+# enable directory browsing
+Options All +Indexes
+{% else %}
+# disable directory browsing
+# Options All -Indexes
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
+{% endif %}
+
+
+{% if site.enable_mime_types -%}
+#
+# MIME type settings
+#
+<IfModule mod_mime.c>
+    # generic
+	DefaultLanguage {{ site.lang }}
+	AddLanguage en-US .html .css .js
+	AddCharset utf-8 .html .css .js .xml .json .rss .atom
+	
+    # .js
+	AddType application/javascript js jsonp
+	AddType application/json json
+	
+	# fonts
+	AddType font/opentype otf
+	AddType application/font-woff woff
+	AddType application/x-font-woff woff
+	AddType application/vnd.ms-fontobject eot
+	AddType application/x-font-ttf ttc ttf
+	AddType image/svg+xml svg svgz
+	AddEncoding gzip svgz
+	
+	# audio files
+	AddType audio/mp4 m4a f4a f4b
+	AddType audio/ogg oga ogg
+	
+	# video files
+	AddType video/mp4 mp4 m4v f4v f4p
+	AddType video/ogg ogv
+	AddType video/webm webm
+	AddType video/x-flv flv
+	
+	# others
+	AddType application/octet-stream safariextz
+	AddType application/x-chrome-extension crx
+	AddType application/x-opera-extension oex
+	AddType application/x-shockwave-flash swf
+	AddType application/x-web-app-manifest+json webapp
+	AddType application/x-xpinstall xpi
+	AddType application/xml atom rdf rss xml
+	AddType application/vnd.openxmlformats .docx .pptx .xlsx .xltx . xltm .dotx .potx .ppsx
+	AddType text/cache-manifest appcache manifest
+	AddType text/vtt vtt
+	AddType text/x-component htc
+	AddType text/x-vcard vcf
+	AddType image/webp webp
+	AddType image/x-icon ico
+
+    {% if site.download_exts != [] -%}
+    # some binary files should display Save As... dialogue on download
+    AddType application/octet-stream {{ ' '.join(site.download_exts) }}
+    {%- endif %}
+</IfModule>
+{%- endif %}
+
+#
+# URL handlings
+#
+{% if site.index_pages != [] -%}
+DirectoryIndex { ' '.join(site.index_files) }
+{%- endif %}
+{% for error_page in site.error_pages -%}
+ErrorDocument error_page.code error_page.location
+{%- endfor %}
+{% if site.enable_remove_www -%}
+# remove www from url
+<IfModule mod_rewrite.c>
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^www.{{ site.domain }} [NC]
+    RewriteRule ^(.*)$ {{ site.protocol }}://{{ site.domain }}/$1 [L,R=301]
+</IfModule>
+{%- endif %}
+{% if site.enable_hotlink_protection -%}
+# no hotlinks for images
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^http://(www.)?{{ site.domain }}/ [nc]
+    RewriteRule .*.(gif|jpg|png)$ {{ site.hotlink_url }} [nc]
+</IfModule>
+{%- endif %}
+{% if site.enable_ssl_redirection -%}
+# enable SSL redirection
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTPS} !on
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</IfModule>
+{%- endif %}
+
+{% for url in site.redirects -%}
+#
+# Redirect URLs
+#
+Redirect 301 /{{ url.old_slug }}
+{{ site.protocol }}://{{ site.domain }}/{{ url.new_slug }}
+{%- endfor %}
+
+{% if False %}
+#
+# Rewrite Rules
+#
+<IfModule mod_rewrite.c>
+    RewriteRule ^content-([0-9]+).html$ content.php?id=$1
+</IfModule>
+{% endfor %}
+
+{% if site.banned_ips != [] -%}
+#
+# banned IP addresses
+#
+allow from all
+{% for IP in site.banned_ips -%}
+order allow,deny
+deny from {{ IP }}
+allow from all
+{%- endfor %}
+{%- endif %}
+
+#
+# banned Referer
+#
+{% if site.banned_websites != [] -%}
+<IfModule mod_rewrite.c>
+    {% for url in site.banned_websites %}
+    RewriteCond %{HTTP_REFERER} {{ url }} [NC,OR]
+    {% endfor %}
+    RewriteRule .* - [F]    
+</ifModule>
+{%- endif %}
+
+#
+# banned Bots
+#
+{% if botname in site.banned_bots != [] -%}
+<IfModule mod_rewrite.c>
+    SetEnvIfNoCase User-Agent ^$ HTTP_SAFE_BADBOT
+    SetEnvIfNoCase User-Agent "^{{ botname }}" HTTP_SAFE_BADBOT
+    Deny from env=HTTP_SAFE_BADBOT
+</ifModule>
+{%- endif %}
+
+{% if site.enable_ssi %}
+#
+# use server side includes
+# (some sort of template system of apache)
+#
+AddType text/html .html
+AddType text/html .shtml
+AddHandler server-parsed .html
+AddHandler server-parsed .shtml
+AddHandler server-parsed .htm
+{% endfor %}
+
+{% if not site.spelling_correction %}
+#
+# check URL spelling
+#
+<IfModule mod_speling.c>
+	CheckSpelling On
+</IfModule>
+{% endif %}
+
+{% if site.enable_expiration %}
+#
+# Default expiration
+#
+<IfModule mod_expires.c>
+	ExpiresActive on
+    ExpiresDefault {{ site.default_expiration }}
+	# ExpiresDefault A300
+</IfModule>
+{% endif %}
+
+{% if site.file_expirations != [] %}
+#
+# Expiration for each file types
+#
+# ExpiresByType image/x-icon "access plus 1 month"
+{% for expiration in site.file_expirations %}
+ExpiresByType {{ expiration.mime_type }} {{ expiration.duration | quote }}
+{% endfor %}
+{% endif %}
+
+{% if site.deny_files != [] %}
+#
+# Access deny file list
+#
+{% for filename in site.deny_files %}
+<Files {{ filename }}>
+ order allow,deny
+ deny from all
+</Files>
+{% endfor %}
+{% endif %}
+
+# Some access control for critical files
+<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

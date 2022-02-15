@@ -1,0 +1,16 @@
+{% extends "widget-area.jinja" %}
+
+{% block content_area %}
+<article id="{{ post.id }}" class="{{ post._class }}">
+    <header>
+        <h1>{{ post.title }}</h1>
+    </header>
+
+    {% block post_content %}
+    {% endblock %}
+
+    <footer>
+        <span class="post-date">{{ post.published | date }}</span>
+    </footer>
+</article>
+{% endblock %}

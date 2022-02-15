@@ -1,0 +1,24 @@
+<!-- generic meta tags -->
+{% block meta -%}
+<meta charset="{{ page.charset }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">        
+{%- endblock %}
+<!-- meta tags for social engagements -->
+{% block sns_meta -%}
+{%- endblock %}
+<!-- style sheet links -->
+{% if 'head' in page.styles: -%}
+{% for css in page.styles['head'] -%}
+<link rel="stylesheet" type="{{ css.type }}" href="{{ css.url }}">
+{%- endfor %}        
+{%- endif %}
+<!-- javascript links -->
+{% if 'head' in  page.scripts -%}
+{% for js in page.scripts['head'] -%}
+<script {{ js.async_or_defer }} src="{{ js.url }}" type="{{ js.type }}"></script>
+{%- endfor %}
+{%- endif %}
+<!-- bulk font insertion (need preload optimization...) -->
+{% for font in page.fonts %}
+{{ font | safe }}
+{% endfor %}

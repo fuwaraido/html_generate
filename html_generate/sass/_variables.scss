@@ -1,0 +1,132 @@
+
+
+
+$grid-gutter: 2.5%;
+$right-third: 1/3*100%;
+$right-quater: 1/4*100%;
+$center-third: 2/3*100%;
+$center-quater: 2/3*100%;
+$left-third: 1/3*100%;
+$left-quater: 1/4*100%;
+
+
+$desktop-breakpoint: 1024px;
+$laptop-breakpoint: 960px;
+$tablet-breakpoint: 768px;
+
+
+
+$hx-line-height: 1.5;
+$hx-letter-spacing: 0.03em;
+$hx-color: $fg-color;
+
+ /*
+  * box variable for primary area
+  */
+
+
+$primary-border-all: true;
+$primary-border-top: false;
+$primary-border-right: false;
+$primary-border-bottom: false;
+$primary-border-left: false;
+$primary-border-style: solid;
+$primary-border-width: 1px;
+$primary-border-color: #ddd;
+
+
+
+/*
+ * box variable for secondary area
+ */
+
+
+$secondary-border-all: true;
+$secondary-border-top: false;
+$secondary-border-right: false;
+$secondary-border-bottom: false;
+$secondary-border-left: false;
+$secondary-border-style: solid;
+$secondary-border-width: 1px;
+$secondary-border-color: #ddd;
+
+
+
+/*
+ * box variable for widget area
+ */
+
+
+$widget-border-all: true;
+$widget-border-top: false;
+$widget-border-right: false;
+$widget-border-bottom: false;
+$widget-border-left: false;
+$widget-border-style: solid;
+$widget-border-width: 1px;
+$widget-border-color: #ddd;
+
+
+
+/*
+ * box variable for container area
+ */
+
+
+$container-border-all: true;
+$container-border-top: false;
+$container-border-right: false;
+$container-border-bottom: false;
+$container-border-left: false;
+$container-border-style: solid;
+$container-border-width: 1px;
+$container-border-color: #ddd;
+
+
+
+/*
+ * box variable for post area
+ */
+
+
+$post-border-all: true;
+$post-border-top: false;
+$post-border-right: false;
+$post-border-bottom: false;
+$post-border-left: false;
+$post-border-style: solid;
+$post-border-width: 1px;
+$post-border-color: #ddd;
+
+
+
+/*
+ * box variable for post-grid
+ */
+
+
+$post-grid-border-all: true;
+$post-grid-border-top: false;
+$post-grid-border-right: false;
+$post-grid-border-bottom: false;
+$post-grid-border-left: false;
+$post-grid-border-style: solid;
+$post-grid-border-width: 1px;
+$post-grid-border-color: #ddd;
+
+
+
+/*
+ * box variable for post-list
+ */
+
+
+$post-list-border-all: true;
+$post-list-border-top: false;
+$post-list-border-right: false;
+$post-list-border-bottom: false;
+$post-list-border-left: false;
+$post-list-border-style: solid;
+$post-list-border-width: 1px;
+$post-list-border-color: #ddd;
+

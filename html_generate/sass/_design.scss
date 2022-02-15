@@ -1,0 +1,12 @@
+
+.site-header {
+    @if variable-exists(site-header-color) {
+        background-color: $site-header-color;
+    }
+}
+
+.site-footer {
+    @if variable-exists(site-footer-color) {
+        background-color: $site-footer-color;
+    }
+}

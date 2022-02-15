@@ -1,0 +1,24 @@
+
+{% import "macro.jinja" as macro %}
+
+/* global settings for headings */
+h1, h2, h3, h4, h5, h6 {    
+    line-height: $hx-line-height;
+
+    @if variable-exists(hx-letter-spacing) {
+        letter-spacing: $hx-letter-spacing;
+    }
+
+    @if variable-exists(hx-color) {
+        color: $hx-color;
+    }
+}
+
+/* headings styles */
+{{ macro.typography_style('h1') }}
+{{ macro.typography_style('h2') }}
+{{ macro.typography_style('h3') }}
+{{ macro.typography_style('h4') }}
+{{ macro.typography_style('h5') }}
+{{ macro.typography_style('h6') }}
+{{ macro.typography_style('p') }}

@@ -1,0 +1,113 @@
+
+/**
+ * some basic layout for entire website
+ */
+ @mixin clearfix() {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
+@mixin center-layout() {
+    max-width: $max-container-width;
+    margin: auto;
+}
+
+%right_third, %right_quater,
+%center_third, %center_quater,
+ %left_third, %left_quater {    
+    width: 100%;
+}
+
+@media (min-width: $laptop-breakpoint) {
+    
+    %right_third {
+        float: right;
+        width: $right-third - $grid-gutter * .5;
+        margin-left: $grid-gutter;
+    }
+
+    %center_third {
+        float: left;
+        width: $center-third - $grid-gutter * .5;
+    }
+
+    %left_third {
+        float: left;
+        width: $left-third - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+}
+
+@media (min-width: $desktop-breakpoint) {
+    
+    %right_third {
+        float: right;
+        width: $right-third - $grid-gutter * .5;
+        margin-left: $grid-gutter;
+    }
+
+    %right_quater {
+        float: right;
+        width: $right-quater - $grid-gutter * .5;
+        margin-left: $grid-gutter;
+    }
+
+    %center_third {
+        float: left;
+        width: $center-third - $grid-gutter * .5;
+    }
+
+    %center_quater {
+        float: left;
+        width: $center-quater - $grid-gutter * .5;
+    }
+
+    %left_third {
+        float: left;
+        width: $left-third - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+
+    %left_quater {
+        float: left;
+        width: $left-quater - $grid-gutter * .5;
+        margin-right: $grid-gutter;
+    }
+}
+
+@mixin sidenav-layout($columns) {
+    @if $columns == 1 {
+        @extend %full_screen;
+    } @else if $columns == 2 {
+        @extend %left_third;
+    } @else if $columns == 3 {
+        @extend %left_quater;
+    }
+}
+
+@mixin primary-layout($columns) {
+    @if $columns == 1 {
+        @extend %full_screen;
+    } @else if $columns == 2 {
+        @extend %center_third;
+    } @else if $columns == 3 {
+        @extend %center_quater;
+    }
+}
+
+@mixin secondary-layout($columns) {
+    @if $columns == 1 {
+        @extend %full_screen;
+    } @else if $columns == 2 {
+        @extend %right_third;
+    } @else if $columns == 3 {
+        @extend %right_quater;
+    }
+}
+
+.center {
+    text-align: center;
+}

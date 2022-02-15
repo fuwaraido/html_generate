@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ page.lang }}">
+    <head>
+        {% block head_meta %}
+            {% include "head_meta.jinja" %}
+        {% endblock %}
+
+        {% block head_links %}
+            {% include "head_links.jinja" %}
+        {% endblock %}
+
+        <title>{{ page.title }}</title>
+    </head>
+
+    <body>
+        <div id="page" class="site-container">
+
+            {% block site_header %}
+                {% include "header.jinja" %}
+            {% endblock %}
+
+            <div id="content" class="site-content container">
+                {% if page.has_side_nav %}
+                <div id="sidenav" class="side-navigation">
+                    {% block side_navigaton %}
+                    {% endblock %}
+                </div>
+                {% endif %}
+
+                {% block primary -%}
+                <div id="primary" class="content-area">
+                    {% block content_area -%}
+                    {%- endblock %}
+                </div>
+                {%- endblock %}
+                {% if page.has_secondary -%}
+                <div id="secondary" class="widget-area">
+                    {% block widget_area -%}
+                    {%- endblock %}
+                </div>
+                {%- endif %}
+            </div>
+
+            {% block site_footer -%}
+            {% include "footer.jinja" %}
+            {%- endblock %}
+
+            {% block footer -%}{%- endblock %}
+        </div>
+    </body>    
+</html>

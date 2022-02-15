@@ -1,0 +1,10 @@
+{## main-navigation ##}
+<nav id="site-navigation" class="main-navigation">
+    <ul id="primary-menu" class="menu">
+        {% for menu in page.main_navigation -%}
+        <li id="{{ menu.id }}" class="{{ menu._class }}">
+            <a href="{{ menu.url }}">{{ menu.label }}</a>
+        </li>
+        {%- endfor %}
+    </ul>
+</nav>

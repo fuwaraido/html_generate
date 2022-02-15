@@ -1,0 +1,152 @@
+
+{## sass macro for jinja engine ##}
+
+{##
+ ## these are box definition in SASS
+ ##}
+{% macro box_variables(boxname) %}
+
+${{ boxname }}-border-all: true;
+${{ boxname }}-border-top: false;
+${{ boxname }}-border-right: false;
+${{ boxname }}-border-bottom: false;
+${{ boxname }}-border-left: false;
+${{ boxname }}-border-style: solid;
+${{ boxname }}-border-width: 1px;
+${{ boxname }}-border-color: #ddd;
+
+{% endmacro %}
+
+{##
+ ## Headings typography definition in SASS
+ ##}
+{% macro typograhy_variable(headings) %}
+{{ box_variables(headings) }}
+{% endmacro %}
+
+{##
+ ## padding/margin
+ ##}
+{% macro box_layout_param (boxname, param) %}
+
+    @if variable-exists({{boxname}}-{{param}}) {{"{"}}
+        {{param}}: ${{boxname}}-{{param}};
+    {{"}"}}
+
+    @if variable-exists({{boxname}}-v-{{param}}) 
+    and variable-exists({{boxname}}-h-{{param}}) {{"{"}}
+        {{param}}: ${{boxname}}-v-{{param}} ${{boxname}}-h-{{param}};
+    {{"}"}} @else if variable-exists({{boxname}}-v-{{param}}) {{"{"}}
+        {{param}}-top: ${{boxname}}-v-{{param}};
+        {{param}}-bottom: ${{boxname}}-v-{{param}};
+    {{"}"}} @else if variable-exists({{boxname}}-h-{{param}}) {{"{"}}
+        {{param}}-left: ${{boxname}}-h-{{param}};
+        {{param}}-right: ${{boxname}}-h-{{param}};
+    {{"}"}}
+
+    @if variable-exists({{boxname}}-{{param}}-top) {{"{"}}
+        {{param}}-top: ${{boxname}}-{{param}}-top;
+    {{"}"}}
+
+    @if variable-exists({{boxname}}-{{param}}-right) {{"{"}}
+        {{param}}-right: ${{boxname}}-{{param}}-right;
+    {{"}"}}
+
+    @if variable-exists({{boxname}}-{{param}}-bottom) {{"{"}}
+        {{param}}-bottom: ${{boxname}}-{{param}}-bottom;
+    {{"}"}}
+
+    @if variable-exists({{boxname}}-{{param}}-left) {{"{"}}
+        {{param}}-left: ${{boxname}}-{{param}}-left;
+    {{"}"}}
+
+{% endmacro %}
+
+{##
+ ## These are box styles in SASS.
+ ##}
+{% macro box(boxname) %}
+
+@mixin {{ boxname }}-box {{ "{" }}
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    {{ box_layout_param(boxname, 'padding') }}
+    {{ box_layout_param(boxname, 'margin') }}
+
+    /**
+     * border settings
+     */
+    @if ${{ boxname }}-border-all {{ "{" }}
+        border: ${{ boxname }}-border-width ${{ boxname }}-border-style ${{ boxname }}-border-color;
+    {{ "}" }} @else {{ "{" }}
+
+        @if ${{boxname}}-border-top {{"{"}}
+            border-top: ${{ boxname }}-border-top-width ${{ boxname }}-border-top-style ${{ boxname }}-border-top-color;
+        {{"}"}}
+
+        @if ${{boxname}}-border-right {{"{"}}
+            border-right: ${{ boxname }}-border-right-width ${{ boxname }}-border-right-style ${{ boxname }}-border-right-color;
+        {{"}"}}
+
+        @if ${{boxname}}-border-bottom {{"{"}}
+            border-bottom: ${{ boxname }}-border-bottom-width ${{ boxname }}-border-bottom-style ${{ boxname }}-border-bottom-color;
+        {{"}"}}
+
+        @if ${{boxname}}-border-left {{"{"}}
+            border-left: ${{ boxname }}-border-left-width ${{ boxname }}-border-left-style ${{ boxname }}-border-left-color;
+        {{"}"}}
+    {{ "}" }}
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists({{ boxname }}-bg-color) {{"{"}}
+        background-color: ${{ boxname }}-bg-color;
+    {{"}"}}
+
+    @if variable-exists({{ boxname }}-fg-clor) {{"{"}}
+        color: ${{ boxname }}-fg-color;
+    {{"}"}}
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists({{boxname}}-border-radius) {{"{"}}
+        border-radius: ${{boxname}}-border-radius;
+    {{"}"}}
+    
+
+{{ "}" }}
+
+{% endmacro %}
+
+{##
+ ## Typography styles in SASS
+ ##}
+{% macro typography_style(headings) %}
+{{ headings }} {{ "{" }}
+
+    @if variable-exists({{headings}}-font-family) {{"{"}}
+        font-family: ${{headings}}-font-family;
+    {{"}"}}
+
+    @if variable-exists({{headings}}-font-style) {{"{"}}
+        font-style: ${{headings}}-font-style;
+    {{"}"}}
+
+    @if variable-exists({{headings}}-font-weight) {{"{"}}
+        font-weight: ${{headings}}-font-weight;
+    {{"}"}}
+
+    @if variable-exists({{headings}}-font-size) {{"{"}}
+        font-size: ${{headings}}-font-size;
+    {{"}"}}
+
+{{ "}" }}
+{% endmacro %}
+

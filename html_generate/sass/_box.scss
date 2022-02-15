@@ -1,0 +1,904 @@
+
+
+/**
+ * primary area box style
+ */
+
+
+@mixin primary-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(primary-padding) {
+        padding: $primary-padding;
+    }
+
+    @if variable-exists(primary-v-padding) 
+    and variable-exists(primary-h-padding) {
+        padding: $primary-v-padding $primary-h-padding;
+    } @else if variable-exists(primary-v-padding) {
+        padding-top: $primary-v-padding;
+        padding-bottom: $primary-v-padding;
+    } @else if variable-exists(primary-h-padding) {
+        padding-left: $primary-h-padding;
+        padding-right: $primary-h-padding;
+    }
+
+    @if variable-exists(primary-padding-top) {
+        padding-top: $primary-padding-top;
+    }
+
+    @if variable-exists(primary-padding-right) {
+        padding-right: $primary-padding-right;
+    }
+
+    @if variable-exists(primary-padding-bottom) {
+        padding-bottom: $primary-padding-bottom;
+    }
+
+    @if variable-exists(primary-padding-left) {
+        padding-left: $primary-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(primary-margin) {
+        margin: $primary-margin;
+    }
+
+    @if variable-exists(primary-v-margin) 
+    and variable-exists(primary-h-margin) {
+        margin: $primary-v-margin $primary-h-margin;
+    } @else if variable-exists(primary-v-margin) {
+        margin-top: $primary-v-margin;
+        margin-bottom: $primary-v-margin;
+    } @else if variable-exists(primary-h-margin) {
+        margin-left: $primary-h-margin;
+        margin-right: $primary-h-margin;
+    }
+
+    @if variable-exists(primary-margin-top) {
+        margin-top: $primary-margin-top;
+    }
+
+    @if variable-exists(primary-margin-right) {
+        margin-right: $primary-margin-right;
+    }
+
+    @if variable-exists(primary-margin-bottom) {
+        margin-bottom: $primary-margin-bottom;
+    }
+
+    @if variable-exists(primary-margin-left) {
+        margin-left: $primary-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $primary-border-all {
+        border: $primary-border-width $primary-border-style $primary-border-color;
+    } @else {
+
+        @if $primary-border-top {
+            border-top: $primary-border-top-width $primary-border-top-style $primary-border-top-color;
+        }
+
+        @if $primary-border-right {
+            border-right: $primary-border-right-width $primary-border-right-style $primary-border-right-color;
+        }
+
+        @if $primary-border-bottom {
+            border-bottom: $primary-border-bottom-width $primary-border-bottom-style $primary-border-bottom-color;
+        }
+
+        @if $primary-border-left {
+            border-left: $primary-border-left-width $primary-border-left-style $primary-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(primary-bg-color) {
+        background-color: $primary-bg-color;
+    }
+
+    @if variable-exists(primary-fg-clor) {
+        color: $primary-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(primary-border-radius) {
+        border-radius: $primary-border-radius;
+    }
+    
+
+}
+
+
+
+/**
+ * secondary area box style
+ */
+
+
+@mixin secondary-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(secondary-padding) {
+        padding: $secondary-padding;
+    }
+
+    @if variable-exists(secondary-v-padding) 
+    and variable-exists(secondary-h-padding) {
+        padding: $secondary-v-padding $secondary-h-padding;
+    } @else if variable-exists(secondary-v-padding) {
+        padding-top: $secondary-v-padding;
+        padding-bottom: $secondary-v-padding;
+    } @else if variable-exists(secondary-h-padding) {
+        padding-left: $secondary-h-padding;
+        padding-right: $secondary-h-padding;
+    }
+
+    @if variable-exists(secondary-padding-top) {
+        padding-top: $secondary-padding-top;
+    }
+
+    @if variable-exists(secondary-padding-right) {
+        padding-right: $secondary-padding-right;
+    }
+
+    @if variable-exists(secondary-padding-bottom) {
+        padding-bottom: $secondary-padding-bottom;
+    }
+
+    @if variable-exists(secondary-padding-left) {
+        padding-left: $secondary-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(secondary-margin) {
+        margin: $secondary-margin;
+    }
+
+    @if variable-exists(secondary-v-margin) 
+    and variable-exists(secondary-h-margin) {
+        margin: $secondary-v-margin $secondary-h-margin;
+    } @else if variable-exists(secondary-v-margin) {
+        margin-top: $secondary-v-margin;
+        margin-bottom: $secondary-v-margin;
+    } @else if variable-exists(secondary-h-margin) {
+        margin-left: $secondary-h-margin;
+        margin-right: $secondary-h-margin;
+    }
+
+    @if variable-exists(secondary-margin-top) {
+        margin-top: $secondary-margin-top;
+    }
+
+    @if variable-exists(secondary-margin-right) {
+        margin-right: $secondary-margin-right;
+    }
+
+    @if variable-exists(secondary-margin-bottom) {
+        margin-bottom: $secondary-margin-bottom;
+    }
+
+    @if variable-exists(secondary-margin-left) {
+        margin-left: $secondary-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $secondary-border-all {
+        border: $secondary-border-width $secondary-border-style $secondary-border-color;
+    } @else {
+
+        @if $secondary-border-top {
+            border-top: $secondary-border-top-width $secondary-border-top-style $secondary-border-top-color;
+        }
+
+        @if $secondary-border-right {
+            border-right: $secondary-border-right-width $secondary-border-right-style $secondary-border-right-color;
+        }
+
+        @if $secondary-border-bottom {
+            border-bottom: $secondary-border-bottom-width $secondary-border-bottom-style $secondary-border-bottom-color;
+        }
+
+        @if $secondary-border-left {
+            border-left: $secondary-border-left-width $secondary-border-left-style $secondary-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(secondary-bg-color) {
+        background-color: $secondary-bg-color;
+    }
+
+    @if variable-exists(secondary-fg-clor) {
+        color: $secondary-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(secondary-border-radius) {
+        border-radius: $secondary-border-radius;
+    }
+    
+
+}
+
+
+
+/**
+ * widget area box style
+ */
+
+
+@mixin widget-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(widget-padding) {
+        padding: $widget-padding;
+    }
+
+    @if variable-exists(widget-v-padding) 
+    and variable-exists(widget-h-padding) {
+        padding: $widget-v-padding $widget-h-padding;
+    } @else if variable-exists(widget-v-padding) {
+        padding-top: $widget-v-padding;
+        padding-bottom: $widget-v-padding;
+    } @else if variable-exists(widget-h-padding) {
+        padding-left: $widget-h-padding;
+        padding-right: $widget-h-padding;
+    }
+
+    @if variable-exists(widget-padding-top) {
+        padding-top: $widget-padding-top;
+    }
+
+    @if variable-exists(widget-padding-right) {
+        padding-right: $widget-padding-right;
+    }
+
+    @if variable-exists(widget-padding-bottom) {
+        padding-bottom: $widget-padding-bottom;
+    }
+
+    @if variable-exists(widget-padding-left) {
+        padding-left: $widget-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(widget-margin) {
+        margin: $widget-margin;
+    }
+
+    @if variable-exists(widget-v-margin) 
+    and variable-exists(widget-h-margin) {
+        margin: $widget-v-margin $widget-h-margin;
+    } @else if variable-exists(widget-v-margin) {
+        margin-top: $widget-v-margin;
+        margin-bottom: $widget-v-margin;
+    } @else if variable-exists(widget-h-margin) {
+        margin-left: $widget-h-margin;
+        margin-right: $widget-h-margin;
+    }
+
+    @if variable-exists(widget-margin-top) {
+        margin-top: $widget-margin-top;
+    }
+
+    @if variable-exists(widget-margin-right) {
+        margin-right: $widget-margin-right;
+    }
+
+    @if variable-exists(widget-margin-bottom) {
+        margin-bottom: $widget-margin-bottom;
+    }
+
+    @if variable-exists(widget-margin-left) {
+        margin-left: $widget-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $widget-border-all {
+        border: $widget-border-width $widget-border-style $widget-border-color;
+    } @else {
+
+        @if $widget-border-top {
+            border-top: $widget-border-top-width $widget-border-top-style $widget-border-top-color;
+        }
+
+        @if $widget-border-right {
+            border-right: $widget-border-right-width $widget-border-right-style $widget-border-right-color;
+        }
+
+        @if $widget-border-bottom {
+            border-bottom: $widget-border-bottom-width $widget-border-bottom-style $widget-border-bottom-color;
+        }
+
+        @if $widget-border-left {
+            border-left: $widget-border-left-width $widget-border-left-style $widget-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(widget-bg-color) {
+        background-color: $widget-bg-color;
+    }
+
+    @if variable-exists(widget-fg-clor) {
+        color: $widget-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(widget-border-radius) {
+        border-radius: $widget-border-radius;
+    }
+    
+
+}
+
+
+
+/**
+ * container area box style
+ */
+
+
+@mixin container-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(container-padding) {
+        padding: $container-padding;
+    }
+
+    @if variable-exists(container-v-padding) 
+    and variable-exists(container-h-padding) {
+        padding: $container-v-padding $container-h-padding;
+    } @else if variable-exists(container-v-padding) {
+        padding-top: $container-v-padding;
+        padding-bottom: $container-v-padding;
+    } @else if variable-exists(container-h-padding) {
+        padding-left: $container-h-padding;
+        padding-right: $container-h-padding;
+    }
+
+    @if variable-exists(container-padding-top) {
+        padding-top: $container-padding-top;
+    }
+
+    @if variable-exists(container-padding-right) {
+        padding-right: $container-padding-right;
+    }
+
+    @if variable-exists(container-padding-bottom) {
+        padding-bottom: $container-padding-bottom;
+    }
+
+    @if variable-exists(container-padding-left) {
+        padding-left: $container-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(container-margin) {
+        margin: $container-margin;
+    }
+
+    @if variable-exists(container-v-margin) 
+    and variable-exists(container-h-margin) {
+        margin: $container-v-margin $container-h-margin;
+    } @else if variable-exists(container-v-margin) {
+        margin-top: $container-v-margin;
+        margin-bottom: $container-v-margin;
+    } @else if variable-exists(container-h-margin) {
+        margin-left: $container-h-margin;
+        margin-right: $container-h-margin;
+    }
+
+    @if variable-exists(container-margin-top) {
+        margin-top: $container-margin-top;
+    }
+
+    @if variable-exists(container-margin-right) {
+        margin-right: $container-margin-right;
+    }
+
+    @if variable-exists(container-margin-bottom) {
+        margin-bottom: $container-margin-bottom;
+    }
+
+    @if variable-exists(container-margin-left) {
+        margin-left: $container-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $container-border-all {
+        border: $container-border-width $container-border-style $container-border-color;
+    } @else {
+
+        @if $container-border-top {
+            border-top: $container-border-top-width $container-border-top-style $container-border-top-color;
+        }
+
+        @if $container-border-right {
+            border-right: $container-border-right-width $container-border-right-style $container-border-right-color;
+        }
+
+        @if $container-border-bottom {
+            border-bottom: $container-border-bottom-width $container-border-bottom-style $container-border-bottom-color;
+        }
+
+        @if $container-border-left {
+            border-left: $container-border-left-width $container-border-left-style $container-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(container-bg-color) {
+        background-color: $container-bg-color;
+    }
+
+    @if variable-exists(container-fg-clor) {
+        color: $container-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(container-border-radius) {
+        border-radius: $container-border-radius;
+    }
+    
+
+}
+
+
+
+/**
+ * article area box style
+ */
+
+
+@mixin post-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(post-padding) {
+        padding: $post-padding;
+    }
+
+    @if variable-exists(post-v-padding) 
+    and variable-exists(post-h-padding) {
+        padding: $post-v-padding $post-h-padding;
+    } @else if variable-exists(post-v-padding) {
+        padding-top: $post-v-padding;
+        padding-bottom: $post-v-padding;
+    } @else if variable-exists(post-h-padding) {
+        padding-left: $post-h-padding;
+        padding-right: $post-h-padding;
+    }
+
+    @if variable-exists(post-padding-top) {
+        padding-top: $post-padding-top;
+    }
+
+    @if variable-exists(post-padding-right) {
+        padding-right: $post-padding-right;
+    }
+
+    @if variable-exists(post-padding-bottom) {
+        padding-bottom: $post-padding-bottom;
+    }
+
+    @if variable-exists(post-padding-left) {
+        padding-left: $post-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(post-margin) {
+        margin: $post-margin;
+    }
+
+    @if variable-exists(post-v-margin) 
+    and variable-exists(post-h-margin) {
+        margin: $post-v-margin $post-h-margin;
+    } @else if variable-exists(post-v-margin) {
+        margin-top: $post-v-margin;
+        margin-bottom: $post-v-margin;
+    } @else if variable-exists(post-h-margin) {
+        margin-left: $post-h-margin;
+        margin-right: $post-h-margin;
+    }
+
+    @if variable-exists(post-margin-top) {
+        margin-top: $post-margin-top;
+    }
+
+    @if variable-exists(post-margin-right) {
+        margin-right: $post-margin-right;
+    }
+
+    @if variable-exists(post-margin-bottom) {
+        margin-bottom: $post-margin-bottom;
+    }
+
+    @if variable-exists(post-margin-left) {
+        margin-left: $post-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $post-border-all {
+        border: $post-border-width $post-border-style $post-border-color;
+    } @else {
+
+        @if $post-border-top {
+            border-top: $post-border-top-width $post-border-top-style $post-border-top-color;
+        }
+
+        @if $post-border-right {
+            border-right: $post-border-right-width $post-border-right-style $post-border-right-color;
+        }
+
+        @if $post-border-bottom {
+            border-bottom: $post-border-bottom-width $post-border-bottom-style $post-border-bottom-color;
+        }
+
+        @if $post-border-left {
+            border-left: $post-border-left-width $post-border-left-style $post-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(post-bg-color) {
+        background-color: $post-bg-color;
+    }
+
+    @if variable-exists(post-fg-clor) {
+        color: $post-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(post-border-radius) {
+        border-radius: $post-border-radius;
+    }
+    
+
+}
+
+
+
+/**
+ * post-list box style
+ */
+
+
+@mixin post-list-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(post-list-padding) {
+        padding: $post-list-padding;
+    }
+
+    @if variable-exists(post-list-v-padding) 
+    and variable-exists(post-list-h-padding) {
+        padding: $post-list-v-padding $post-list-h-padding;
+    } @else if variable-exists(post-list-v-padding) {
+        padding-top: $post-list-v-padding;
+        padding-bottom: $post-list-v-padding;
+    } @else if variable-exists(post-list-h-padding) {
+        padding-left: $post-list-h-padding;
+        padding-right: $post-list-h-padding;
+    }
+
+    @if variable-exists(post-list-padding-top) {
+        padding-top: $post-list-padding-top;
+    }
+
+    @if variable-exists(post-list-padding-right) {
+        padding-right: $post-list-padding-right;
+    }
+
+    @if variable-exists(post-list-padding-bottom) {
+        padding-bottom: $post-list-padding-bottom;
+    }
+
+    @if variable-exists(post-list-padding-left) {
+        padding-left: $post-list-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(post-list-margin) {
+        margin: $post-list-margin;
+    }
+
+    @if variable-exists(post-list-v-margin) 
+    and variable-exists(post-list-h-margin) {
+        margin: $post-list-v-margin $post-list-h-margin;
+    } @else if variable-exists(post-list-v-margin) {
+        margin-top: $post-list-v-margin;
+        margin-bottom: $post-list-v-margin;
+    } @else if variable-exists(post-list-h-margin) {
+        margin-left: $post-list-h-margin;
+        margin-right: $post-list-h-margin;
+    }
+
+    @if variable-exists(post-list-margin-top) {
+        margin-top: $post-list-margin-top;
+    }
+
+    @if variable-exists(post-list-margin-right) {
+        margin-right: $post-list-margin-right;
+    }
+
+    @if variable-exists(post-list-margin-bottom) {
+        margin-bottom: $post-list-margin-bottom;
+    }
+
+    @if variable-exists(post-list-margin-left) {
+        margin-left: $post-list-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $post-list-border-all {
+        border: $post-list-border-width $post-list-border-style $post-list-border-color;
+    } @else {
+
+        @if $post-list-border-top {
+            border-top: $post-list-border-top-width $post-list-border-top-style $post-list-border-top-color;
+        }
+
+        @if $post-list-border-right {
+            border-right: $post-list-border-right-width $post-list-border-right-style $post-list-border-right-color;
+        }
+
+        @if $post-list-border-bottom {
+            border-bottom: $post-list-border-bottom-width $post-list-border-bottom-style $post-list-border-bottom-color;
+        }
+
+        @if $post-list-border-left {
+            border-left: $post-list-border-left-width $post-list-border-left-style $post-list-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(post-list-bg-color) {
+        background-color: $post-list-bg-color;
+    }
+
+    @if variable-exists(post-list-fg-clor) {
+        color: $post-list-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(post-list-border-radius) {
+        border-radius: $post-list-border-radius;
+    }
+    
+
+}
+
+
+
+/**
+ * post-grid box style
+ */
+
+
+@mixin post-grid-box {
+
+    /*
+     * basic settings - margin, padding
+     */
+
+    box-sizing: border-box;
+    
+    
+
+    @if variable-exists(post-grid-padding) {
+        padding: $post-grid-padding;
+    }
+
+    @if variable-exists(post-grid-v-padding) 
+    and variable-exists(post-grid-h-padding) {
+        padding: $post-grid-v-padding $post-grid-h-padding;
+    } @else if variable-exists(post-grid-v-padding) {
+        padding-top: $post-grid-v-padding;
+        padding-bottom: $post-grid-v-padding;
+    } @else if variable-exists(post-grid-h-padding) {
+        padding-left: $post-grid-h-padding;
+        padding-right: $post-grid-h-padding;
+    }
+
+    @if variable-exists(post-grid-padding-top) {
+        padding-top: $post-grid-padding-top;
+    }
+
+    @if variable-exists(post-grid-padding-right) {
+        padding-right: $post-grid-padding-right;
+    }
+
+    @if variable-exists(post-grid-padding-bottom) {
+        padding-bottom: $post-grid-padding-bottom;
+    }
+
+    @if variable-exists(post-grid-padding-left) {
+        padding-left: $post-grid-padding-left;
+    }
+
+
+    
+
+    @if variable-exists(post-grid-margin) {
+        margin: $post-grid-margin;
+    }
+
+    @if variable-exists(post-grid-v-margin) 
+    and variable-exists(post-grid-h-margin) {
+        margin: $post-grid-v-margin $post-grid-h-margin;
+    } @else if variable-exists(post-grid-v-margin) {
+        margin-top: $post-grid-v-margin;
+        margin-bottom: $post-grid-v-margin;
+    } @else if variable-exists(post-grid-h-margin) {
+        margin-left: $post-grid-h-margin;
+        margin-right: $post-grid-h-margin;
+    }
+
+    @if variable-exists(post-grid-margin-top) {
+        margin-top: $post-grid-margin-top;
+    }
+
+    @if variable-exists(post-grid-margin-right) {
+        margin-right: $post-grid-margin-right;
+    }
+
+    @if variable-exists(post-grid-margin-bottom) {
+        margin-bottom: $post-grid-margin-bottom;
+    }
+
+    @if variable-exists(post-grid-margin-left) {
+        margin-left: $post-grid-margin-left;
+    }
+
+
+
+    /**
+     * border settings
+     */
+    @if $post-grid-border-all {
+        border: $post-grid-border-width $post-grid-border-style $post-grid-border-color;
+    } @else {
+
+        @if $post-grid-border-top {
+            border-top: $post-grid-border-top-width $post-grid-border-top-style $post-grid-border-top-color;
+        }
+
+        @if $post-grid-border-right {
+            border-right: $post-grid-border-right-width $post-grid-border-right-style $post-grid-border-right-color;
+        }
+
+        @if $post-grid-border-bottom {
+            border-bottom: $post-grid-border-bottom-width $post-grid-border-bottom-style $post-grid-border-bottom-color;
+        }
+
+        @if $post-grid-border-left {
+            border-left: $post-grid-border-left-width $post-grid-border-left-style $post-grid-border-left-color;
+        }
+    }
+
+    /**
+     * background and foreground colors
+     */
+    @if variable-exists(post-grid-bg-color) {
+        background-color: $post-grid-bg-color;
+    }
+
+    @if variable-exists(post-grid-fg-clor) {
+        color: $post-grid-fg-color;
+    }
+
+    /**
+     * border-radius settings
+     */
+    @if variable-exists(post-grid-border-radius) {
+        border-radius: $post-grid-border-radius;
+    }
+    
+
+}
+
+

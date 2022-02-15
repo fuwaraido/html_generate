@@ -1,0 +1,62 @@
+{% import "macro.jinja" as macro %}
+
+{##
+ ## site layout default
+ ##}
+$grid-gutter: 2.5%;
+$right-third: 1/3*100%;
+$right-quater: 1/4*100%;
+$center-third: 2/3*100%;
+$center-quater: 2/3*100%;
+$left-third: 1/3*100%;
+$left-quater: 1/4*100%;
+
+{##
+ ## default responsive break points
+ ##}
+$desktop-breakpoint: 1024px;
+$laptop-breakpoint: 960px;
+$tablet-breakpoint: 768px;
+
+{##
+ ## widget-box definition
+ ##}
+
+$hx-line-height: 1.5;
+$hx-letter-spacing: 0.03em;
+$hx-color: $fg-color;
+
+ /*
+  * box variable for primary area
+  */
+{{ macro.box_variables('primary') }}
+
+/*
+ * box variable for secondary area
+ */
+{{ macro.box_variables('secondary') }}
+
+/*
+ * box variable for widget area
+ */
+{{ macro.box_variables('widget') }}
+
+/*
+ * box variable for container area
+ */
+{{ macro.box_variables('container') }}
+
+/*
+ * box variable for post area
+ */
+{{ macro.box_variables('post') }}
+
+/*
+ * box variable for post-grid
+ */
+{{ macro.box_variables('post-grid') }}
+
+/*
+ * box variable for post-list
+ */
+{{ macro.box_variables('post-list') }}
